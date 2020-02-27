@@ -1,9 +1,38 @@
 button.fav {
+    $icon-font-size: 1.5em;
+
+    z-index: 99999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     border: none;
-    font-size: 2em;
     background-color: transparent;
     
+    .icon {
+        position: absolute;
+        top: $padding;
+        left: $padding;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0;
+        font-size: $icon-font-size;
+        text-shadow: $text-shadow;
+    }
+
     .text {
-        @include visually-hidden;
+        display: none;
+    }
+
+    &:hover{
+        .text {
+            display: block;
+            position: absolute;
+            top: calc(#{$padding} + 0.25em);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-left: $padding;
+            width: 80%;
+        }
     }
 }

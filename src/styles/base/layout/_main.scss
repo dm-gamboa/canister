@@ -2,6 +2,7 @@ main {
     $max-width: em(1440);
 
     margin: 0 auto;
+    padding: 0 $padding;
     max-width: $max-width;
     min-height: 100vh;
 }

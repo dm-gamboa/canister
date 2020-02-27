@@ -39,16 +39,18 @@ const Movie = (props) => {
     }, [movie]);
 
     return (
-        <main className='movie'>
+        <main className="movie">
             <div className="title">
-                <h1 className='title'>{md && md[0].title}</h1>
-                <h2 className='tagline'>{md && md[1].tagline}</h2>
+                <h1 className="title">{md && md[0].title} ({md && md[0].releaseDate.split(" ")[2]})</h1>
+                <h2 className="tagline">{md && md[1].tagline}</h2>
             </div>{/*.title*/}
-            {md && <MoviePoster posterURL={md[0].posterURL}
-                                movie={md[0]}
-                                favList={favList}
-                                handleChangeFavList={handleChangeFavList} />}
-            {md && <MovieInfo movie={md} />}
+            <div className="content">
+                {md && <MoviePoster posterURL={md[0].posterURL}
+                                    movie={md[0]}
+                                    favList={favList}
+                                    handleChangeFavList={handleChangeFavList} />}
+                {md && <MovieInfo movie={md} />}
+            </div>{/*.content*/}
         </main>  
     );
 }

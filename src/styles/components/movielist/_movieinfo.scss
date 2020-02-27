@@ -1,6 +1,5 @@
 .movie-info {
     display: none;
-    transition: all 0.4s ease-in-out;
     font-size: 0.8em;
 
     @include mq($tablet) {

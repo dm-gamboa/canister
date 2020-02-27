@@ -89,16 +89,19 @@ function filterMovie(arr, i){
                     title: item.original_title,
                     posterURL: item.poster_path,
                     rating: item.vote_average,
-                    genre: item.genre_ids,
+                    genre: item.genre_ids, // Not available in single movie query
                     releaseDate: item.release_date,
                     id: item.id
                 });
+
+                // If retrieving data for single movie page
                 if(i == 1){
+                    // Push additional information
                     result.push({
                         genres: item.genres,
                         overview: item.overview,
                         tagline: item.tagline,
-                        runtime: item.runtime
+                        runtime: item.runtime,
                     })
                 }
             }

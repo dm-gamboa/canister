@@ -1,12 +1,22 @@
-// Variables
+// # Variables
 
-// -- Colour
-// ---- Brand
+// ## Colour
+// #### Brand
 $brand-color-01: #ed1c24;
 $brand-color-02: #080808;
 $brand-color-03: #2e2e2e;
 
-// ---- Text
+// #### Darkened
+$brand-color-01-darkened: darken(#ed1c24, 0.75);
+$brand-color-02-darkened: darken(#080808, 0.75);
+$brand-color-03-darkened: darken(#2e2e2e, 0.75);
+
+// #### Transparent
+$brand-color-01-transparent: rgba(#ed1c24, 0.75);
+$brand-color-02-transparent: rgba(#080808, 0.75);
+$brand-color-03-transparent: rgba(#2e2e2e, 0.75);
+
+// ## Text
 $text-color-dark: #000;
 $text-color-med: #ed1c24;
 $text-color-light: #fff;
@@ -20,3 +30,10 @@ $icon-color: #{$text-color-med};
 // ---- Background
 $body-bg-color: #{$brand-color-02};
 $footer-bg-color: #{$brand-color-01};
+
+// ---- Gradient
+$gradient-color-01: #{$brand-color-02};
+$gradient-color-02: #{$brand-color-03};
+
+// ---- Shadow
+$shadow: darken(#080808, 0.75);

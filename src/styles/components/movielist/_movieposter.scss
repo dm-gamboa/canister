@@ -3,23 +3,7 @@
 
     img {
         position: relative;
-        width: 95%;
+        width: 100%;
         border-radius: $border-radius;
-    }
-
-    .fav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 1em;
-        z-index: 99999;
-
-        @include mq($tablet) {
-            font-size: 2em;
-        }
-        
-        @include mq($desktop) {
-            font-size: 2.5em;
-        }
     }
 }

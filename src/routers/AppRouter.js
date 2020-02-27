@@ -17,7 +17,7 @@ import Error from '../components/Error';
 
 const AppRouter = () => (
 	<Router>
-		<div className="wrapper">
+		<div className="gradient wrapper">
 			<Header />
 			<Nav />
 			<Switch>
