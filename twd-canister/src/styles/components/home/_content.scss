@@ -1,0 +1,18 @@
+.content {
+    $max-width: em(800);
+
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+
+    @include mq($tablet) {
+        max-width: $max-width;
+    }
+
+    @include mq($desktop) {
+        top: 45%;
+    }
+}

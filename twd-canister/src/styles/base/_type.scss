@@ -1,0 +1,55 @@
+// Type Styles
+$max-width-article: em(800);
+
+h1, h2, h3 {
+    font-family: $heading-font;
+}
+
+h1.title {
+    font-size: 2em;
+    color: $text-color-med;
+    text-transform: lowercase;
+
+    @include mq($tablet){
+        font-size: 2.5em;
+    }
+
+    @include mq($desktop){
+        font-size: 3em;
+    }
+}
+
+section h2 {
+    font-size: 1.5em;
+    text-transform: lowercase;
+
+    @include mq($tablet){
+        font-size: 2em;
+    }
+
+    @include mq($desktop){
+        font-size: 2.5em;
+    }
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    display: inline;
+    text-transform: uppercase;
+    color: $text-color-med;
+}
+
+body,
+p, a,
+input, button {
+    line-height: $line-height;
+    font-family: $body-font;
+    color: $body-text-color;
+}
+
+article {
+    max-width: $max-width-article;
+}

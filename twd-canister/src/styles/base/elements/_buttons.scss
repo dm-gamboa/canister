@@ -1,0 +1,23 @@
+button {
+    $color-btn: #{$brand-color-01};
+    $color-text-inactive: #{$text-color-light};
+    $color-text-active: #{$color-btn};
+    $padding: em(5) em(15);
+    $border: solid em(2) $color-btn;
+    
+    @include flatten(btn);
+    padding: $padding;
+    text-transform: uppercase;
+    background-color: $color-btn;
+    font-size: 1.25em;
+    color: $color-text-inactive;
+    border: $border;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    #{$link-hover-selector} {
+        background-color: transparent;
+        font-weight: bold;
+        color: $color-text-active;
+    }
+}

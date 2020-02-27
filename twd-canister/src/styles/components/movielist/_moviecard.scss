@@ -1,0 +1,25 @@
+.movie-card {
+    $margin-btm: em(10);
+
+    grid-column-start: auto;
+    position: relative;
+    margin-bottom: $margin-btm;
+    width: 100%;
+    cursor: pointer;
+    
+    #{$link-hover-selector} {
+        .movie-info {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 5%;        
+            margin: 0 auto;
+            width: 95%;
+            background-color: rgba( #000, 0.75 );
+            border-radius: $border-radius;
+        }
+    }
+    
+}

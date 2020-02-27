@@ -1,0 +1,21 @@
+.movie-list {
+    $max-width: 80%;
+
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    margin: 0 auto;
+    max-width: $max-width;
+
+    @include mq($tablet) {
+        grid-template-columns: repeat(3, 33%);
+    }
+
+    @include mq($desktop) {
+        grid-template-columns: repeat(4, 25%);
+    }
+}
+
+
+@import "moviecard";
+@import "movieposter";
+@import "movieinfo";

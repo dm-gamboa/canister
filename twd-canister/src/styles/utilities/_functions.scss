@@ -1,0 +1,9 @@
+// -- Convert Px to Ems
+@function em($px, $bc: 16){
+    @return #{$px/$bc}em; 
+}
+
+// -- Get transition delay
+@function delay($time, $order){
+    @return #{$time*$order}s; 
+}

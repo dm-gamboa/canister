@@ -1,0 +1,55 @@
+// # Mixins
+
+// -- Media Query Mixin
+@mixin mq($w){
+    @media (min-width: $w){
+        @content;
+    }
+}
+
+// -- Center element with margin auto
+@mixin margin-center {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+// -- Make element flex type
+@mixin flex($direction: row, $wrap: nowrap, $justify-content: center, $align-items: center) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+// -- Remove default styles
+@mixin flatten($type:"") {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    @if $type == "list" {
+        list-style-type: none;
+    }
+    @if $type == "link" {
+        text-decoration: none;
+    }
+    @if $type == "btn" {
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+}
+
+// -- Make visually hidden but still readably by screen
+@mixin visually-hidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}

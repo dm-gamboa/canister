@@ -1,0 +1,10 @@
+// -- Utility Variables
+
+// ---- Links
+$link-hover-selector: '&:hover, &:focus, &:active';
+$link-inactive-selector: '&:not(:hover), &:not(:focus), &:not(:active)';
+
+// ---- Media Query Breakpoints
+$desktop: em(1250);
+$tablet: em(760);
+$mobile: em(420);

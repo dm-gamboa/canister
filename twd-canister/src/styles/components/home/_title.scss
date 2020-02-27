@@ -1,0 +1,12 @@
+.title {
+    margin: 0 auto;
+    width: 75%;
+
+    @include mq($tablet) {
+        width: 50%;
+    }
+
+    h2{
+        margin-bottom: 0;
+    }
+}

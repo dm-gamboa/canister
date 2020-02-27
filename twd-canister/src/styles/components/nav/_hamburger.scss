@@ -1,0 +1,68 @@
+.hamburger {
+    $margin: em(50);
+    $width: em(35);
+    $bar-distance: em(12);
+    $bar-height: em(7);
+    $color-inactive: #{$text-color-light};
+    $color-active: #{$brand-color-01};
+    $transition: all 0.3s ease-in-out;
+
+    display: block;
+    float: right;
+    padding: 0;
+    margin-bottom: $margin;
+    width: $width;
+    font-size: 1em;
+    background-color: transparent;
+    transform: translateY(200%);
+    border: none;
+    cursor: pointer;
+
+    * {
+        display: block;
+        width: 100%;
+        height: $bar-height;
+        border-radius: em(10);
+        background-color: $color-inactive;
+        transition: $transition;
+    }
+
+    @include mq($tablet) {
+        display: none;
+    }
+
+    .patty {
+        position: relative;
+        top: $bar-distance;
+
+        &.show {
+            background-color: transparent;
+        }
+    }
+
+    .bun {
+        position: absolute;
+        transition-delay: delay(0.3, 1); 
+        
+        &.top {
+            top: $bar-distance;
+        }
+
+        &.btm {
+            top: calc(#{$bar-distance} * -1);
+        }
+
+        &.show {
+            top: 0;
+            background-color: $color-active;
+
+            &.top {
+                transform: rotate(45deg);
+            }
+
+            &.btm {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

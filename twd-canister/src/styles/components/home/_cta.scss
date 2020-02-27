@@ -1,0 +1,14 @@
+.cta {
+    @include flex(column);
+    margin: 0 auto;
+    padding: $padding;
+
+    .or {
+        padding: $padding 0;
+    }
+    
+    .discover {
+        width: 40%;
+    }
+}
+

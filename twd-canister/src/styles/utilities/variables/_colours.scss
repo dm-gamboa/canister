@@ -1,0 +1,22 @@
+// Variables
+
+// -- Colour
+// ---- Brand
+$brand-color-01: #ed1c24;
+$brand-color-02: #080808;
+$brand-color-03: #2e2e2e;
+
+// ---- Text
+$text-color-dark: #000;
+$text-color-med: #ed1c24;
+$text-color-light: #fff;
+
+// ---- Type
+$heading-text-color: #{$text-color-light};
+$body-text-color: #{$text-color-light};
+$link-color: #{$text-color-light};
+$icon-color: #{$text-color-med};
+
+// ---- Background
+$body-bg-color: #{$brand-color-02};
+$footer-bg-color: #{$brand-color-01};

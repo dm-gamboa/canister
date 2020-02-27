@@ -1,0 +1,42 @@
+.search-bar {
+    $color-bar: #{$text-color-light};
+    $color-text: #{$brand-color-01};
+    $color-btn: #{$brand-color-01};
+    $color-icon: #{$text-color-light};
+    
+    display: flex;
+    position: relative;
+    padding: 0 $padding;
+    width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+
+    * {
+        font-size: 1em;
+    }
+
+    input[type=text] {
+        padding: $padding;
+        flex: 7;
+        border: solid em(5) $color-bar;
+        border-radius: $border-radius 0 0 $border-radius;
+        outline: none;
+    
+        #{$link-hover-selector} {
+            color: $color-text;
+        }
+    }
+
+    button{
+        flex: 1;
+        background-color: $color-btn;
+        border: solid em(5) $color-btn;
+        border-radius: 0 $border-radius $border-radius 0;
+        cursor: pointer;
+
+        .icon {
+            color: $color-icon;
+            font-size: 1.5em;
+        }
+    }
+}

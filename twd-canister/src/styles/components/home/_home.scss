@@ -1,0 +1,22 @@
+.home {
+    & section {
+        min-height: 50vh;
+
+        @include mq($desktop) {
+            min-height: 100vh;
+        }
+    }
+
+    & section h2 {
+        text-transform: lowercase;
+        margin-bottom: 0;
+    }
+
+    @import "landing";
+    @import "content";
+    @import "cta";
+    @import "title";
+    @import "featured";
+}
+
+

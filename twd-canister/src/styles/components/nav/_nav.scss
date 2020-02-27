@@ -1,0 +1,104 @@
+nav {
+    $height: em(50);
+    $width: 50%;
+
+    height: $height;
+
+    @include mq($tablet) {
+        width: $width;
+    }
+
+    ul {
+        @include flatten(list);
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    li {
+        flex: 1;
+        height: $height;
+    }
+
+    a {
+        @include flatten(link);
+        display: block;
+        width: 100%;
+        height: $height;
+        font-size: 1.5em;
+        color: $text-color-light;
+        line-height: $height;
+        text-align: center;
+        text-transform: uppercase;
+
+        #{$link-hover-selector} {
+            background-color: $brand-color-01;
+
+            .icon {
+                color: $text-color-dark;
+            }
+        }
+    }
+
+    .icon {
+        padding-right: $padding;
+    }
+
+}
+
+// nav {
+//     $padding: em(20);
+//     $height: em(50);
+//     $color-link-active: #{$brand-color-03};
+
+//     display: none;
+    
+//     &.show {
+//         display: block;
+//     }
+
+//     @include mq($tablet) {
+//         display: block;
+//         padding: 0 $padding;
+//     }
+
+//     ul {
+//         @include flatten(list);
+
+//         @include mq($tablet) {
+//             @include flex(row, nowrap, space-between, center);
+//         }
+//     }
+
+//     li {
+//         @include flatten;
+
+//         @include mq($tablet) {
+//             flex: 1;
+//         }
+//     }
+
+//     a {
+//         display: block;
+//         line-height: $height;
+//         text-align: left;
+//         cursor: pointer;
+
+//         @include mq($tablet) {
+//             text-align: center;
+//             line-height: 1;
+//         }
+    
+//         #{$link-hover-selector} {
+//             background-color: $color-link-active;
+
+//             @include mq($tablet) {
+//                 background-color: transparent;
+//                 color: #{$text-color-med};
+//             }
+//         }
+//     }
+
+//     @import "main";
+// }
+
+// @import "hamburger";

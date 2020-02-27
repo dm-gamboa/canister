@@ -1,0 +1,9 @@
+button.fav {
+    border: none;
+    font-size: 2em;
+    background-color: transparent;
+    
+    .text {
+        @include visually-hidden;
+    }
+}

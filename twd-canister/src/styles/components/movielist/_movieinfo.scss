@@ -1,0 +1,46 @@
+.movie-info {
+    display: none;
+    transition: all 0.4s ease-in-out;
+    font-size: 0.8em;
+
+    @include mq($tablet) {
+        font-size: 1em;
+    }
+    
+    @include mq($desktop) {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        position: absolute;
+        top: 2em;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    button {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .summary {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+        width: 90%;
+        text-align: right;
+    }
+}

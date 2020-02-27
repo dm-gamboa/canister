@@ -1,0 +1,62 @@
+&.main {
+    $border: em(1) solid #{$brand-color-03};
+    width: 100%;
+    height: 100vh;
+
+    @include mq($tablet){
+        height: auto;
+    }
+
+    a {
+        @include flex;
+        justify-content: flex-start;
+        padding-left: $padding;
+
+        @include mq($tablet){
+            display: block;
+            padding: 0;
+        }
+    }
+
+    li:nth-child(2) {
+        padding: 0;
+
+        @include mq($tablet) {
+            flex: 2;
+            margin: 0;
+        }
+    }
+
+    li:nth-child(n+2) {
+        font-size: em(40);
+    }
+
+    li:nth-child(2n+3) {
+        border-top: $border;
+        border-bottom: $border;
+
+        @include mq($tablet){
+            border: none;
+        }
+    }
+
+    img {
+        margin: 0 auto;
+    }
+
+    .icon {
+        flex: 1;
+
+        @include mq($tablet){
+            display: none;
+        }
+    }
+
+    .text {
+        flex: 3;
+
+        @include mq($tablet){
+            display: block;
+        }
+    } 
+}

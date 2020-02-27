@@ -1,0 +1,26 @@
+// -- Fonts
+$body-font: 'Advent Pro', serif;
+$heading-font: 'Copse', sans-serif;
+
+@font-face {
+    font-family: 'icons';
+    src: url('../fonts/icons.woff2') format('woff2'),
+         url('../fonts/icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+.icon-link {
+    text-decoration: none;
+    .icon {
+        color: #{$icon-color};
+        font-family: 'icons';
+        &.icon-search:before { content: '\e800'; } /* '' */
+        &.icon-home:before { content: '\e801'; } /* '' */
+        &.icon-heart:before { content: '\e802'; } /* '' */
+        &.icon-info:before { content: '\e803'; } /* '' */
+        &.icon-theatre:before { content: '\e804'; } /* '' */
+        &.icon-heart-empty:before { content: '\e805'; } /* '' */
+        &.icon-arrow:before { content: '\f13a'; } /* '' */
+    }
+}
