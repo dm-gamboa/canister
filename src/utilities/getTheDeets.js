@@ -1,8 +1,9 @@
 import placeholderPoster from '../images/placeholder-poster.jpg';
+import getIndex from './getIndex';
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const genres = [
+const tmdbGenres = [
     {
         "id": 28,
         "name": "Action"
@@ -81,56 +82,62 @@ const genres = [
     }
     ];
 
-function filterMovie(arr, i){
-    return (
-        arr.reduce((result, item, j) => {
-            if( j < i ){
-                result.push({ 
-                    title: item.original_title,
-                    posterURL: item.poster_path,
-                    rating: item.vote_average,
-                    genre: item.genre_ids, // Not available in single movie query
-                    releaseDate: item.release_date,
-                    id: item.id
-                });
+function getInfo(arr, i){
+    let info = [];
 
-                // If retrieving data for single movie page
-                if(i == 1){
-                    // Push additional information
-                    result.push({
-                        genres: item.genres,
-                        overview: item.overview,
-                        tagline: item.tagline,
-                        runtime: item.runtime,
-                    })
-                }
+    info = arr.map((item) => {
+        return (
+            {
+                title: item.original_title,
+                posterURL: item.poster_path,
+                rating: item.vote_average,
+                genre: item.genre_ids, // Not available in single movie query
+                releaseDate: item.release_date,
+                id: item.id                
             }
-            return result;
-        }, [])
-    )
+        );
+
+    })
+
+    // If single movie query
+    if( i === 1 ){
+        // Create a second object with additional info
+        // And add to info array
+        info.push(
+            {
+                genres: arr[0].genres,
+                overview: arr[0].overview,
+                tagline: arr[0].tagline,
+                runtime: arr[0].runtime
+            }
+        )
+    }
+
+    return info;
 }
 
 function setPosterURL(obj){
     if(obj.posterURL){
         const baseURL = 'http://image.tmdb.org/t/p/w400/';
         obj.posterURL = baseURL + obj.posterURL;
-    }else{
+    }else{ // No poster available
         obj.posterURL = placeholderPoster;
     }
+}
+
+function setRating(obj){
+    obj.rating = (obj.rating*10) + "%";
 }
 
 function setGenre(obj, i){
     let genreNames = [];
 
-    if( obj.genres ){
-        obj.genres.forEach( genre => genreNames.push(genre.name));
-    }else if (i > 1) {
-        obj.genre.forEach(id => {
-            genres.forEach(genre => {
-                if( genre.id === id ){
-                    genreNames.push(genre.name);
-                }
-            });
+    if(obj.genres){ // Single movie queries
+        obj.genres.forEach( genre => genreNames.push(genre.name) );
+    }else if (i > 1) { // Multiple movie queries
+        obj.genre.forEach(genreID => {
+            const genreName = tmdbGenres[getIndex(genreID, tmdbGenres, "var")].name;
+            genreNames.push(genreName);
         });
     }
 
@@ -148,13 +155,16 @@ function setReleaseDate(obj){
 }
 
 function getTheDeets(tmdbAPI, i){
-    if(i == 1){
+    // If single movie query
+    if(i === 1){
+        // Convert object to array
         tmdbAPI = [tmdbAPI];
     }
 
-    tmdbAPI = filterMovie(tmdbAPI, i);
+    tmdbAPI = getInfo(tmdbAPI, i);
     tmdbAPI.forEach((item, j) => {
         setPosterURL(item);
+        setRating(item);
         setGenre(item, i);
         setReleaseDate(item);
         return tmdbAPI[j];

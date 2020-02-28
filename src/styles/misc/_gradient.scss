@@ -8,12 +8,12 @@ URL: https://www.gradient-animator.com/
 */
 
 .gradient{
-    background: linear-gradient(270deg, $gradient-color-01, $gradient-color-02);
+    background: linear-gradient(218deg, $gradient-color-01, gradient-color-02);
     background-size: 400% 400%;
 
-    -webkit-animation: AnimationName 13s ease infinite;
-    -moz-animation: AnimationName 13s ease infinite;
-    animation: AnimationName 13s ease infinite;
+    -webkit-animation: AnimationName 45s ease infinite;
+    -moz-animation: AnimationName 45s ease infinite;
+    animation: AnimationName 45s ease infinite;
 
     @-webkit-keyframes AnimationName {
         0%{background-position:0% 50%}

@@ -20,7 +20,7 @@ const Favourites = (props) => {
     return (
         <main className="favourites">
             <h1 className="title">My Favourites</h1>
-            <MovieList movieList={favList} favList={favList} handleChangeFavList={handleChangeFavList}/>
+            <MovieList movieList={favList} moviesToShow={favList.length} favList={favList} handleChangeFavList={handleChangeFavList}/>
         </main>        
     );
 

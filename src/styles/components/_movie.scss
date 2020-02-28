@@ -1,24 +1,47 @@
 .movie {
-    $max-width-img: 50vw;
-
-    h1.title {
+    h1 {
         margin-bottom: 0;
         text-transform: none;
     }
 
     h2 {
+        margin: 0;
         font-family: $body-font;
         font-weight: normal;
     }
 
-    img {
-        max-width: $max-width-img;
+    .sub {
+        margin-bottom: $margin;
+        @include flex;
+        justify-content: flex-start;
+
+        .tagline {
+            padding-right: $padding;
+        }
+
+        .rating {
+            @include flatten;
+            font-size: 1.5em;
+        }
     }
 
     .content {
         @include mq($tablet) {
             @include flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .movie-poster {
+            max-width: em(600);
+
+            @include mq($tablet) {
+                padding-right: $padding;                
+            }
+        }
+
+        .info {
+            max-width: em(800);
         }
     }
 }

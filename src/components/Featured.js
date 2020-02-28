@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 
 const featuredOptions = ['Now Playing', 'Popular', 'Top Rated', 'Upcoming'];
 
@@ -10,7 +10,7 @@ const Featured = (props) => {
                 <option key={i} value={option}>
                     {option}
                 </option>
-            )
+            );
         });
     }
 
@@ -22,9 +22,10 @@ const Featured = (props) => {
     }
 
     return (
-        <form onChange={handleChangeFeatured} className="featured">
+        <form className="featured">
+            {console.log("hello from Featured")}
             <label htmlFor="featured">Feature by </label>
-            <select name="featuredOpt" id="featuredOpt">
+            <select onChange={handleChangeFeatured} name="featuredOpt" id="featuredOpt">
                 {getOptions(featuredOptions)}
             </select>
         </form>        

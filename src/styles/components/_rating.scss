@@ -1,0 +1,22 @@
+.rating {
+    cursor: pointer;
+
+    .max {
+        position: relative;
+
+        .icon {
+            color: $brand-color-02-transparent;
+        }
+    }
+
+    .score {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+
+        .icon {
+            color: $brand-color-01;
+        }
+    }
+}

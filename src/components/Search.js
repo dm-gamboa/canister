@@ -49,7 +49,7 @@ const Search = (props) => {
         <main className="search">
             <h1 className="title">Search Results</h1>
             <p>You searched for: {query}</p>
-            {sr && <MovieList movieList={sr} favList={favList} handleChangeFavList={handleChangeFavList}/>}
+            {sr && <MovieList movieList={sr} moviesToShow={mts} favList={favList} handleChangeFavList={handleChangeFavList}/>}
         </main>
     );
 }

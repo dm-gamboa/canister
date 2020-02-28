@@ -3,6 +3,7 @@ import getTheDeets from '../utilities/getTheDeets';
 import {setStorage, getStorage} from '../utilities/storageMaker';
 import MoviePoster from './MoviePoster';
 import MovieInfo from './MovieInfo';
+import Rating from './Rating';
 
 const Movie = (props) => {
     // -------------------------------------
@@ -41,8 +42,11 @@ const Movie = (props) => {
     return (
         <main className="movie">
             <div className="title">
-                <h1 className="title">{md && md[0].title} ({md && md[0].releaseDate.split(" ")[2]})</h1>
-                <h2 className="tagline">{md && md[1].tagline}</h2>
+                <h1 className="main">{md && md[0].title} ({md && md[0].releaseDate.split(" ")[2]})</h1>
+                <div className="sub">
+                    <h2 className="tagline">{md && `"${md[1].tagline}"`}</h2>
+                    {md && <Rating rating={md[0].rating} />}                    
+                </div>{/*.sub*/}
             </div>{/*.title*/}
             <div className="content">
                 {md && <MoviePoster posterURL={md[0].posterURL}

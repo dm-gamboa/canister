@@ -3,7 +3,7 @@ import FavBtn from './FavBtn';
 
 const MoviePoster = (props) => (
     <div className="movie-poster">
-        <img className="thumbnail" src={props.posterURL} alt="Movie Poster" />
+        <img src={props.posterURL} alt="Movie Poster" />
         <FavBtn movie={props.movie} 
                 favList={props.favList}
                 handleChangeFavList={props.handleChangeFavList} />

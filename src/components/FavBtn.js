@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import getIndex from '../utilities/getIndex';
 
 const FavBtn = (props) => {
-    const getFavIndex = (movie, movieArr) => {        
-        // Test if selected movie is in Favourites
-        const movieMatch = (favMovie) => favMovie.id === props.movie.id;
-        // Get index of selected movie in Favourites
-        const favIndex = props.favList.findIndex(movieMatch);
 
-        return favIndex;
-    }
+    const [fav, setFav] = useState(false);
 
-    const isFav = (movie, movieArr) => {
-        if(getFavIndex(movie, movieArr) === -1){
-            return false;
-        }
-        return true;
-    }
+    useEffect(() => {
+        const isFav = (movie, favList) => {
+            if(getIndex(movie, favList) === -1){
+                setFav(false);
+            }else{
+                setFav(true);
+            }
+        }        
+        isFav(props.movie, props.favList);
+    });
+
+    // const isFav = (movie, movieArr) => {
+    //     if(getIndex(movie, movieArr) === -1){
+    //         return false;
+    //     }
+    //     return true;
+    // }
 
     const handleChangeFav = () => {
         // Create copy of favourites to avoid mutating React state directly
         const newFavList = [...props.favList];
 
-        const favIndex = getFavIndex(props.movie, props.favList);
+        const favIndex = getIndex(props.movie, props.favList);
 
         if(favIndex === -1){
             // Add to favourites
@@ -37,8 +43,8 @@ const FavBtn = (props) => {
 
     return (
         <button className="fav icon-link" onClick={handleChangeFav}>
-            {isFav(props.movie, props.favList) ? <span className="icon icon-heart"></span> : <span className="icon icon-heart-empty"></span>}
-            {isFav(props.movie, props.favList) ? <span className="text">Remove from Favourites</span> : <span className="text">Add to Favourites</span>}
+            <span className={fav ? "fav icon icon-heart" : "icon icon-heart"}></span>
+            <span className="text">{fav ? "Remove from Favourites" : "Add to Favourites" }</span>
         </button>
     );
 }

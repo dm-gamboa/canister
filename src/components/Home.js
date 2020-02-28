@@ -42,10 +42,14 @@ const Home = (props) => {
             setMovieData(getTheDeets(data.results, mts));
         }        
         getMovieData();
-    }, [md]);
+    }, [featured]);
 
     const handleChangeFeatured = (selection) => {
         setFeatured(selection);
+    }
+
+    const handleChangeMTS = (mts) => {
+        setMoviesToShow(mts);
     }
 
     // -------------------------------------
@@ -72,7 +76,7 @@ const Home = (props) => {
             <section className="featured">
                 <h2>{featured.split('_').join(' ').toUpperCase()}</h2>
                 <Featured handleChangeFeatured={handleChangeFeatured}/>
-                {md && <MovieList movieList={md} favList={favList} handleChangeFavList={handleChangeFavList}/>}
+                {md && <MovieList movieList={md} moviesToShow={mts} favList={favList} handleChangeFavList={handleChangeFavList}/>}
             </section>{/*.featured*/}
         </main>        
     );
